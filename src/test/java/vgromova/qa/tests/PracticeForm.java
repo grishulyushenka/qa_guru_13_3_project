@@ -4,6 +4,7 @@ import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import static com.codeborne.selenide.Condition.selected;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selectors.*;
@@ -29,7 +30,8 @@ public class PracticeForm {
 
         $("#userEmail").setValue("ivanov@ya.ru");
 
-        $(byText("Male")).click();
+        $("#genterWrapper").$(byText("Male")).click();
+        $("#gender-radio-1").shouldBe(selected);
 
         $("#userNumber").setValue("9306705718");
 
@@ -41,9 +43,12 @@ public class PracticeForm {
         $("#subjectsInput").sendKeys("com");
         $(byText("Computer Science")).click();
 
-        $(byText("Sports")).click();
-        $(byText("Reading")).click();
-        $(byText("Music")).click();
+        $("#hobbiesWrapper").$(byText("Sports")).click();
+        $("#hobbies-checkbox-1").shouldBe(selected);
+        $("#hobbiesWrapper").$(byText("Reading")).click();
+        $("#hobbies-checkbox-2").shouldBe(selected);
+        $("#hobbiesWrapper").$(byText("Music")).click();
+        $("#hobbies-checkbox-3").shouldBe(selected);
 
         $("#uploadPicture").uploadFromClasspath("kot_shrek.jpg");
 
@@ -71,8 +76,6 @@ public class PracticeForm {
                 text("Rajasthan Jaipur")
 
         );
-
-        $("button#closeLargeModal").click();
     }
 
 }
