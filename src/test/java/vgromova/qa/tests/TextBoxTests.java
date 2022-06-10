@@ -1,4 +1,4 @@
-package vgromova.qa;
+package vgromova.qa.tests;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
@@ -33,6 +33,8 @@ public class TextBoxTests {
         $("[id=submit]").click();
 
         $("[id=output]").find("[id=name]").shouldHave(text("Name:" + name));
+        //$("[id=output] [id=name]").shouldHave(text("Name:" + name));
+        //$("[id=output]").$("[id=name]").shouldHave(text("Name:" + name));
         $("[id=output]").find("[id=email]").shouldHave(text("Email:" + email));
         $("[id=output]").find("[id=currentAddress]").shouldHave(
                 text("Current Address :" + currentAddress));
