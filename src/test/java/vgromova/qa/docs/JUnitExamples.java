@@ -1,4 +1,4 @@
-package vgromova.qa.tests;
+package vgromova.qa.docs;
 
 import org.junit.jupiter.api.*;
 

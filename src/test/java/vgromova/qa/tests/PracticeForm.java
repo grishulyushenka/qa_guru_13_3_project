@@ -1,7 +1,5 @@
 package vgromova.qa.tests;
 
-import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.selected;
@@ -10,19 +8,13 @@ import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
 
-public class PracticeForm {
-
-    @BeforeAll
-    static void beforeAll() {
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.browserSize = "1920x1080";
-    }
+public class PracticeForm extends TestBase {
 
     @Test
     void successfulTest() {
         open("/automation-practice-form");
-        //executeJavaScript("$('footer').remove()");
-        //executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
+        executeJavaScript("$('#fixedban').remove()");
 
         //Заполнение полей формы
         $("#firstName").setValue("Ivan");
@@ -38,10 +30,11 @@ public class PracticeForm {
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").selectOption(2);
         $(".react-datepicker__year-select").selectOption("1990");
-        $(".react-datepicker__month").$(byText("3")).click();
+        $(".react-datepicker__day--003:not(.react-datepicker__day--outside-month)").click();
 
         $("#subjectsInput").sendKeys("com");
-        $(byText("Computer Science")).click();
+        $("#subjectsInput").pressEnter();
+        //$("#subjectsWrapper").$(byText("Computer Science")).click();
 
         $("#hobbiesWrapper").$(byText("Sports")).click();
         //$("#hobbies-checkbox-1").shouldBe(selected);
@@ -55,10 +48,10 @@ public class PracticeForm {
         $("#currentAddress").setValue("India");
 
         $("#state").click();
-        $(byText("Rajasthan")).click();
+        $("#stateCity-wrapper").$(byText("Rajasthan")).click();
 
         $("#city").click();
-        $(byText("Jaipur")).click();
+        $("#stateCity-wrapper").$(byText("Jaipur")).click();
 
         $("#submit").click();
 
