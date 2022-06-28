@@ -37,11 +37,8 @@ public class PracticeForm extends TestBase {
         //$("#subjectsWrapper").$(byText("Computer Science")).click();
 
         $("#hobbiesWrapper").$(byText("Sports")).click();
-        //$("#hobbies-checkbox-1").shouldBe(selected);
         $("#hobbiesWrapper").$(byText("Reading")).click();
-        //$("#hobbies-checkbox-2").shouldBe(selected);
         $("#hobbiesWrapper").$(byText("Music")).click();
-        //$("#hobbies-checkbox-3").shouldBe(selected);
 
         $("#uploadPicture").uploadFromClasspath("kot_shrek.jpg");
 
