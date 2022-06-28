@@ -1,12 +1,6 @@
 package vgromova.qa.tests;
 
 import org.junit.jupiter.api.Test;
-import vgromova.qa.pages.StudentRegistrationFormPage;
-
-import static com.codeborne.selenide.Condition.selected;
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
 
 public class PracticeFormWithPageObjects extends TestBase {
 
