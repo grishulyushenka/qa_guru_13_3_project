@@ -17,7 +17,7 @@ public class StudentRegistrationFormPage {
     SelenideElement firstName = $("#firstName"),
             lastName = $("#lastName"),
             userEmail = $("#userEmail"),
-            gender = $("#genterWrapper").$(byText("Male")),
+            gender = $("#genterWrapper"),
             userNumber = $("#userNumber"),
             dateOfBirth = $("#dateOfBirthInput"),
             currentAddress = $("#currentAddress"),
@@ -58,7 +58,7 @@ public class StudentRegistrationFormPage {
     }
 
     public StudentRegistrationFormPage setGender(String value){
-        gender.click();
+        gender.$(byText(value)).click();
 
         return this;
     }
